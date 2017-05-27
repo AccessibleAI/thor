@@ -77,7 +77,7 @@ class Thor
 	      end
       end
       args = array_options
-      self.options = opts.parse(array_options)
+      self.options = opts.parse(real_options)
       self.options = config[:class_options].merge(options) if config[:class_options]
 
       # If unknown options are disallowed, make sure that none of the
