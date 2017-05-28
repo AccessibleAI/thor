@@ -68,7 +68,7 @@ class Thor
       disable_required_check = self.class.disable_required_check? config[:current_command]
       opts = Thor::Options.new(parse_options, hash_options, stop_on_unknown, disable_required_check)
       real_options = []
-      array_options.each do |p|
+      array_options.each_with_index do |p,i|
 	      if !p.starts_with? "--" and !p.starts_with? "-"
 		      break
 	      else
