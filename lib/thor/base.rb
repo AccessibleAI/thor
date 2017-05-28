@@ -72,8 +72,15 @@ class Thor
 	      if !p.starts_with? "--" and !p.starts_with? "-"
 		      break
 	      else
-		      real_options << p
-		      array_options.delete(p)
+	      real_options << p
+	      if !p.include? "="
+		      if i+1< array_options.size
+			      real_options << array_options[i+1]
+			      array_options.delete(array_options[i+1])
+		      end
+	      end
+	      array_options.delete(p)
+
 	      end
       end
       args = array_options
